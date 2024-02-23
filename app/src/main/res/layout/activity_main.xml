@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/welcome_background_color"
+    tools:context=".WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/your_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"/>
+
+    <TextView
+        android:id="@+id/textView_welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_message"
+        android:textColor="@color/welcome_text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/imageView_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"/>
+
+    <!-- Add any additional views such as buttons, instructions, etc. -->
+
+</RelativeLayout>
