@@ -21,7 +21,7 @@
         android:layout_below="@id/imageView_logo"
         android:layout_marginTop="32dp"
         android:hint="@string/username"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:autofillHints="" />
 
     <EditText
@@ -34,43 +34,24 @@
         android:inputType="textPassword"
         android:autofillHints="" />
 
+    <EditText
+        android:id="@+id/semester"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_password"
+        android:layout_marginTop="16dp"
+        android:hint="@string/semester"
+        android:inputType="number"
+        android:autofillHints="" />
+
     <Button
         android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText_password"
+        android:layout_below="@id/semester"
         android:layout_marginTop="32dp"
         android:text="@string/login"/>
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Splash Screen"
-        android:textSize="22sp"
-        android:textStyle="bold|italic"
-        />
 
-    <TextView
-        android:id="@+id/TvSpMess"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="10dp"
-        android:text="Please wait..."
-        android:textSize="16sp"
-         />
 
-    <Button
-        android:id="@+id/BtCont"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="25dp"
-        android:enabled="false"
-        android:text="Continue"
-       />
 
 </RelativeLayout>

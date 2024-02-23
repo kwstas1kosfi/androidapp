@@ -1,15 +1,16 @@
 package com.example.myhello;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
 
-    private static final int DELAY_TIME = 3000; // Delay time in milliseconds
+    private static final int DELAY_TIME = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }, DELAY_TIME);
 
-        // Set onClickListener for the tapToProceedTextView
+
         tapToProceedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the click event, e.g., proceed to the next activity
+                //proceed to the next activity
                 startActivity(new Intent(MainActivity.this, UserActivity.class));
             }
         });
