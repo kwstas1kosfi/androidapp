@@ -3,28 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/welcome_background_color"
-    tools:context=".WelcomeActivity">
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/your_logo"
+        android:src="@drawable/images"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"/>
+        android:layout_marginTop="64dp"
+        android:contentDescription="@string/todo" />
 
-    <TextView
-        android:id="@+id/textView_welcome_message"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/welcome_message"
-        android:textColor="@color/welcome_text_color"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:layout_below="@id/imageView_logo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="32dp"
+        android:hint="@string/username"
+        android:inputType="textEmailAddress"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_email"
+        android:layout_marginTop="16dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_password"
+        android:layout_marginTop="32dp"
+        android:text="@string/login"/>
 
     <!-- Add any additional views such as buttons, instructions, etc. -->
 
