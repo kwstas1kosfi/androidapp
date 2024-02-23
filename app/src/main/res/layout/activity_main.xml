@@ -9,39 +9,83 @@
         android:id="@+id/imageView_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/images"
+        android:src="@drawable/intro"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
         android:contentDescription="@string/todo" />
 
-    <EditText
-        android:id="@+id/editText_email"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView_welcome"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/welcome_to_our_app"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:layout_below="@id/imageView_logo"
-        android:layout_marginTop="32dp"
-        android:hint="@string/username"
-        android:inputType="textEmailAddress"
-        android:autofillHints="" />
+        android:layout_centerHorizontal="true"
+        />
 
-    <EditText
-        android:id="@+id/editText_password"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/createdByUs"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText_email"
-        android:layout_marginTop="16dp"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:autofillHints="" />
-
-    <Button
-        android:id="@+id/button_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editText_password"
         android:layout_marginTop="32dp"
-        android:text="@string/login"/>
+        android:text="@string/createdby"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/textView_welcome"
+        android:layout_centerHorizontal="true"
+        />
 
-    <!-- Add any additional views such as buttons, instructions, etc. -->
+    <TextView
+        android:id="@+id/createdBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/user1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/createdByUs"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/createdBy1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/user2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/createdBy"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/createdBy2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/user3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/createdBy1"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/textView_tap_to_proceed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/tap_to_proceed"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/createdBy2"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
+    <!-- Add more views, buttons, or other UI elements as needed -->
 
 </RelativeLayout>
