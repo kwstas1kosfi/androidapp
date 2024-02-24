@@ -15,7 +15,7 @@
         android:contentDescription="@string/todo" />
 
     <EditText
-        android:id="@+id/editText_email"
+        android:id="@+id/academic_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView_logo"
@@ -25,10 +25,20 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editText_password"
+        android:id="@+id/full_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText_email"
+        android:layout_below="@id/academic_id"
+        android:layout_marginTop="32dp"
+        android:hint="@string/fullname"
+        android:inputType="text"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/full_name"
         android:layout_marginTop="16dp"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -38,7 +48,7 @@
         android:id="@+id/semester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText_password"
+        android:layout_below="@id/password"
         android:layout_marginTop="16dp"
         android:hint="@string/semester"
         android:inputType="number"

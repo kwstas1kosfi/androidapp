@@ -2,7 +2,7 @@
     <string name="welcome_message">Login </string>
     <string name="username">Academic id</string>
     <string name="password">Password</string>
-    <string name="login">Login</string>
+    <string name="login">Sing up for the quiz</string>
     <string name="todo">TODO</string>
     <string name="welcome_to_our_app">Welcome to Our App</string>
     <string name="user1">Nikos Sofras </string>
@@ -11,4 +11,5 @@
     <string name="createdby">Created By</string>
     <string name="tap_to_proceed">Tap to Proceed</string>
     <string name="semester">Semester</string>
+    <string name="fullname">Full Name</string>
 </resources>
