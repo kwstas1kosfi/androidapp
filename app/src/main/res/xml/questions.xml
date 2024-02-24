@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questions>
+    <question>
+        <text>What is the capital of France?</text>
+        <options>
+            <option>Paris</option>
+            <option>London</option>
+            <option>Berlin</option>
+            <option>Rome</option>
+        </options>
+        <answer>Paris</answer>
+    </question>
+    <question>
+        <text>What is the capital of italy?</text>
+        <options>
+            <option>gsdagasd</option>
+            <option>agagsdasgd</option>
+            <option>agsd</option>
+            <option>asgd</option>
+        </options>
+        <answer>Paris</answer>
+    </question>
+    <question>
+        <text>What is the capital of greece?</text>
+        <options>
+            <option>Paris</option>
+            <option>agsagsd</option>
+            <option>Berlin</option>
+            <option>Romasgasdgasde</option>
+        </options>
+        <answer>Paris</answer>
+    </question>
+    <question>
+        <text>What is the capital of gernce?</text>
+        <options>
+            <option>Paris</option>
+            <option>London</option>
+            <option>Berlin</option>
+            <option>Rome</option>
+        </options>
+        <answer>Paris</answer>
+    </question>
+</questions>

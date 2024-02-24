@@ -76,7 +76,7 @@ public class UserActivity extends AppCompatActivity {
         String hashedPassword = BCrypt.hashpw(passwordPlainText, BCrypt.gensalt());
 
         // SQL statement to insert data into the table
-        String insertDataSQL = "INSERT INTO students (academicId,password, fullName, semester, score) VALUES (?, ?, ?, ?, 0);";
+        String insertDataSQL = "INSERT INTO students (academicId, fullName, password, semester, score) VALUES (?, ?, ?, ?, 0);";
 
         // Execute the SQL statement
         db.execSQL(insertDataSQL, new String[]{academicId,fullName, hashedPassword , semester});
