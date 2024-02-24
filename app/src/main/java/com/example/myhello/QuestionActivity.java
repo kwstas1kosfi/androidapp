@@ -37,6 +37,12 @@ public class QuestionActivity extends AppCompatActivity {
         List<String> options = question.getOptions();
         LinearLayout optionsLayout = findViewById(R.id.optionsLayout);
 
+        // Set initial margin for the first option
+        int marginBetweenOptions = 64; // Set your desired margin between options
+        int marginTopForFirstOption = 0; // Set your desired top margin for the first option
+        boolean firstOption = true;
+
+
         // Clear the options layout before adding new options
         optionsLayout.removeAllViews();
 
@@ -45,6 +51,13 @@ public class QuestionActivity extends AppCompatActivity {
             TextView optionTextView = new TextView(this);
             optionTextView.setText(options.get(i));
             optionTextView.setTextSize(18); // Set text size as needed
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(0, firstOption ? marginTopForFirstOption : marginBetweenOptions, 0, 0);
+            optionTextView.setLayoutParams(params);
 
             // Set click listener for each option
             optionTextView.setOnClickListener(view -> {
@@ -71,6 +84,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             // Add the option TextView to the layout
             optionsLayout.addView(optionTextView);
+            firstOption = false;
         }
     }
 
