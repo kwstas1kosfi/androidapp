@@ -37,6 +37,9 @@ public class QuestionActivity extends AppCompatActivity {
         List<String> options = question.getOptions();
         LinearLayout optionsLayout = findViewById(R.id.optionsLayout);
 
+        // Clear the options layout before adding new options
+        optionsLayout.removeAllViews();
+
         for (int i = 0; i < options.size(); i++) {
             // Create a new TextView for each option
             TextView optionTextView = new TextView(this);
