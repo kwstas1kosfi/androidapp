@@ -2,13 +2,12 @@ package com.example.myhello;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.List;
 
 public class QuestionActivity extends AppCompatActivity {
@@ -19,10 +18,6 @@ public class QuestionActivity extends AppCompatActivity {
     private SQLiteDatabase db;
 
     private int score = 0;
-
-
-    // Initialize your XMLPullParser and parse the questions from your XML file
-    // Load questions from the XML file (you might want to do this in onCreate())
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +39,12 @@ public class QuestionActivity extends AppCompatActivity {
         TextView questionTextView = findViewById(R.id.Question);
         questionTextView.setText(question.getText());
 
+        // Display the image associated with the question
+        ImageView questionImageView = findViewById(R.id.questionImage);
+        String imageResourceName = question.getImageResourceName();
+        int resourceId = getResources().getIdentifier(imageResourceName, "drawable", getPackageName());
+        questionImageView.setImageResource(resourceId);
+
         // Display the options
         List<String> options = question.getOptions();
         LinearLayout optionsLayout = findViewById(R.id.optionsLayout);
@@ -52,7 +53,6 @@ public class QuestionActivity extends AppCompatActivity {
         int marginBetweenOptions = 64; // Set your desired margin between options
         int marginTopForFirstOption = 0; // Set your desired top margin for the first option
         boolean firstOption = true;
-
 
         // Clear the options layout before adding new options
         optionsLayout.removeAllViews();
@@ -107,9 +107,10 @@ public class QuestionActivity extends AppCompatActivity {
         // Update progress bar
         int totalQuestions = questions.size();
         int answeredQuestions = currentQuestionIndex + 1; // Index starts from 0
-        int progress = (answeredQuestions ) / totalQuestions;
+        int progress = (answeredQuestions * 100) / totalQuestions;
         progressBar.setProgress(progress);
     }
+
     private void updateScoreInDatabase(int score) {
         // SQL statement to update the score for the current user
         String updateScoreSQL = "UPDATE students SET score =" + score + " WHERE academicId = ?";
@@ -117,6 +118,4 @@ public class QuestionActivity extends AppCompatActivity {
         // Execute the SQL statement
         db.execSQL(updateScoreSQL);
     }
-
-
 }

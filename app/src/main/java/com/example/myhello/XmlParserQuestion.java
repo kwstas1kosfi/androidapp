@@ -20,6 +20,7 @@ public class XmlParserQuestion {
 
             int eventType = parser.getEventType();
             String questionText = "";
+            String imageResourceName = "";
             List<String> options = new ArrayList<>();
             String correctAnswer = "";
 
@@ -31,6 +32,10 @@ public class XmlParserQuestion {
                         case "text":
                             parser.next();
                             questionText = parser.getText();
+                            break;
+                        case "image":
+                            parser.next();
+                            imageResourceName = parser.getText();
                             break;
                         case "options":
                             while (eventType != XmlPullParser.END_TAG || !"options".equals(parser.getName())) {
@@ -49,11 +54,12 @@ public class XmlParserQuestion {
                     }
                 } else if (eventType == XmlPullParser.END_TAG && parser.getName().equals("question")) {
                     // Create a new Question object with the parsed data
-                    Question question = new Question(questionText, new ArrayList<>(options), correctAnswer);
+                    Question question = new Question(questionText, imageResourceName, new ArrayList<>(options), correctAnswer);
                     questions.add(question);
 
                     // Clear the variables for the next question
                     questionText = "";
+                    imageResourceName = "";
                     correctAnswer = "";
                     options.clear();
                 }
