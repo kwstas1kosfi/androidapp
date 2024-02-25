@@ -16,7 +16,13 @@ import org.mindrot.jbcrypt.BCrypt;
 public class UserActivity extends AppCompatActivity {
 
     private static final String DB_NAME = "mydatabase.db";
-    private SQLiteDatabase db;
+    public static SQLiteDatabase db;
+    @SuppressLint("StaticFieldLeak")
+    private static UserActivity instance;
+
+    public EditText getAcademicId() {
+        return academicId;
+    }
 
     private EditText academicId;
     private EditText fullName;
@@ -29,11 +35,13 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity);
 
-        // Initialize the SQLiteDatabase instance
-        db = openOrCreateDatabase(DB_NAME, MODE_PRIVATE, null);
+        instance = this;
 
-        // Create table if not exists
-        createTable();
+        // Initialize the SQLiteDatabase instance
+        if (db == null) {
+            db = openOrCreateDatabase(DB_NAME, MODE_PRIVATE, null);
+            createTable();
+        }
 
         // Initialize views
         academicId = findViewById(R.id.academic_id);
@@ -51,6 +59,10 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(new Intent(UserActivity.this, QuestionActivity.class));
             }
         });
+    }
+
+    public static UserActivity getInstance() {
+        return instance;
     }
 
     private void createTable() {
@@ -90,4 +102,3 @@ public class UserActivity extends AppCompatActivity {
         Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show();
     }
 }
-

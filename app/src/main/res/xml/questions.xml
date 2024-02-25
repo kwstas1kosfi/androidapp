@@ -1,43 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <questions>
     <question>
-        <text>What is the capital of France?</text>
+        <text>Σε ποιο ελληνικό νησί βρίσκεται ο Εθνικός δρυμός Σαμαριάς;</text>
         <options>
-            <option>Paris</option>
-            <option>London</option>
-            <option>Berlin</option>
-            <option>Rome</option>
+            <option>Θάσο</option>
+            <option>Κρήτη</option>
+            <option>Ρόδο</option>
+            <option>Πάτμο</option>
         </options>
-        <answer>Paris</answer>
+        <answer>Κρήτη</answer>
     </question>
     <question>
-        <text>What is the capital of italy?</text>
+        <text>Σε ποια νησιωτικό σύμπλεγμα της Ελλάδας ανήκει η Ερμούπολη;</text>
         <options>
-            <option>gsdagasd</option>
-            <option>agagsdasgd</option>
-            <option>agsd</option>
-            <option>asgd</option>
+            <option>Σποράδες</option>
+            <option>Επτάνησα</option>
+            <option>Κυκλάδες</option>
+            <option>Δωδεκάνησα</option>
         </options>
-        <answer>Paris</answer>
+        <answer>Κυκλάδες</answer>
     </question>
     <question>
-        <text>What is the capital of greece?</text>
+        <text>Το καλοκαιρινό τουριστικό θέρετρο Φαληράκι, βρίσκεται στο νησί…</text>
         <options>
-            <option>Paris</option>
-            <option>agsagsd</option>
-            <option>Berlin</option>
-            <option>Romasgasdgasde</option>
+            <option>Ζάκυνθος</option>
+            <option>Κεφαλονιά</option>
+            <option>Κρήτη</option>
+            <option>Ρόδος</option>
         </options>
-        <answer>Paris</answer>
+        <answer>Ρόδος</answer>
     </question>
     <question>
-        <text>What is the capital of gernce?</text>
+        <text>Η ιταλική πόλη Κάλιαρι βρίσκεται στο νησί της Σικελίας ή στο νησί της Σαρδηνίας;</text>
         <options>
-            <option>Paris</option>
-            <option>London</option>
-            <option>Berlin</option>
-            <option>Rome</option>
+            <option>Σαρδηνίας</option>
+            <option>Σικελίας</option>
         </options>
-        <answer>Paris</answer>
+        <answer>Σαρδηνίας</answer>
+    </question>
+    <question>
+        <text>Πόσα νησιά αποτελούν το σύμπλεγμα των Νήσων Φερόες;</text>
+        <options>
+            <option>17</option>
+            <option>15</option>
+            <option>18</option>
+            <option>16</option>
+        </options>
+        <answer>18</answer>
+    </question>
+    <question>
+        <text>Από ποια θάλασσα βρέχεται η Πορτογαλία;</text>
+        <options>
+            <option>Ατλαντικό Ωκεανό</option>
+            <option>Μεσόγειο Θάλασσα</option>
+        </options>
+        <answer>Ατλαντικό Ωκεανό</answer>
+    </question>
+    <question>
+        <text>Με ποια από τις παρακάτω χώρες, συνορεύει η Βενεζουέλα;</text>
+        <options>
+            <option>Περού</option>
+            <option>Βολιβία</option>
+            <option>Κολομβία</option>
+            <option>Εκουαδόρ</option>
+        </options>
+        <answer>Κολομβία</answer>
+    </question>
+    <question>
+        <text>Ποιος από τους ωκεανούς της Γης είναι μεγαλύτερος σε έκταση;</text>
+        <options>
+            <option>Αρκτικός</option>
+            <option>Ινδικός</option>
+            <option>Ειρηνικός</option>
+            <option>Ατλαντικός</option>
+        </options>
+        <answer>Ειρηνικός</answer>
+    </question>
+    <question>
+        <text>Σε ποια ήπειρο βρίσκεται το όρος Κιλιμάντζαρο;</text>
+        <options>
+            <option>Αφρική</option>
+            <option>Ευρώπη</option>
+            <option>Αμερική</option>
+            <option>Ασία</option>
+        </options>
+        <answer>Αφρική</answer>
+    </question>
+    <question>
+        <text>Το πιο βαθύ σημείο της Γης είναι η τάφρος των…</text>
+        <options>
+            <option>Φιλιππίνων</option>
+            <option>Μαριάνων</option>
+        </options>
+        <answer>Μαριάνων</answer>
+    </question>
+    <question>
+        <text>Ποιο δέντρο απεικονίζεται στην σημαία του Καναδά;</text>
+        <options>
+            <option>Κακαόδεντρο</option>
+            <option>Αμυγδαλιά</option>
+            <option>Σφένδαμος</option>
+            <option>Πεύκο</option>
+        </options>
+        <answer>Πεύκο</answer>
+    </question>
+    <question>
+        <text>Περίπου πόσα είδη δέντρων υπάρχουν στο δάσος του Αμαζονίου;</text>
+        <options>
+            <option>16.000</option>
+            <option>55.000</option>
+            <option>160.000</option>
+            <option>4.000</option>
+        </options>
+        <answer>55.000</answer>
+    </question>
+    <question>
+        <text>Το Ηνωμένο Βασίλειο συμπεριλαμβάνει την Αγγλία, την Ουαλία, τη Σκωτία και την…</text>
+        <options>
+            <option>Βόρεια Ιρλανδία</option>
+            <option>Ιρλανδία</option>
+        </options>
+        <answer>Βόρεια Ιρλανδία</answer>
+    </question>
+    <question>
+        <text>Που βρίσκεται η Αδελία Γη;</text>
+        <options>
+            <option>Περού</option>
+            <option>Αυστραλία</option>
+            <option>Ανταρκτική</option>
+            <option>Νέα Ζηλανδία</option>
+        </options>
+        <answer>Ανταρκτική</answer>
+    </question>
+    <question>
+        <text>Πόσες χρονικές ζώνες υπάρχουν στο κράτος της Ρωσίας;</text>
+        <options>
+            <option>Έντεκα</option>
+            <option>Είκοσι</option>
+            <option>Δώδεκα</option>
+            <option>Επτά</option>
+        </options>
+        <answer>Έντεκα</answer>
+    </question>
+    <question>
+        <text>Παρίσι</text>
+        <options>
+            <option>ΣΩΣΤΟ</option>
+            <option>ΛΑΘΟΣ</option>
+        </options>
+        <answer>ΣΩΣΤΟ</answer>
+    </question>
+    <question>
+        <text>Παλιά φωτογραφία της...</text>
+        <options>
+            <option>Θεσσαλονίκης</option>
+            <option>Σμύρνης</option>
+        </options>
+        <answer>Σμύρνης</answer>
+    </question>
+    <question>
+        <text>Πεκίνο</text>
+        <options>
+            <option>ΛΑΘΟΣ</option>
+            <option>ΣΩΣΤΟ</option>
+        </options>
+        <answer>ΣΩΣΤΟ</answer>
+    </question>
+    <question>
+        <text>Ποια πόλη βλέπουμε;</text>
+        <options>
+            <option>Κοπεγχάγη</option>
+            <option>Άμστερνταμ</option>
+        </options>
+        <answer>Άμστερνταμ</answer>
+    </question>
+    <question>
+        <text>Ποια πόλη βλέπουμε;</text>
+        <options>
+            <option>Κοπεγχάγη</option>
+            <option>Όσλο</option>
+            <option>Γκέτεμποργκ</option>
+        </options>
+        <answer>Κοπεγχάγη</answer>
     </question>
 </questions>

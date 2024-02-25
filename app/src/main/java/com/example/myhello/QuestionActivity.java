@@ -1,7 +1,9 @@
 package com.example.myhello;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +15,11 @@ public class QuestionActivity extends AppCompatActivity {
 
     private List<Question> questions;
     private int currentQuestionIndex = 0;
+    private ProgressBar progressBar;
+    private SQLiteDatabase db;
+
+    private int score = 0;
+
 
     // Initialize your XMLPullParser and parse the questions from your XML file
     // Load questions from the XML file (you might want to do this in onCreate())
@@ -26,6 +33,10 @@ public class QuestionActivity extends AppCompatActivity {
         questions = XmlParserQuestion.parseQuestions(getResources(), R.xml.questions);
         // Show Questions
         showQuestion(questions.get(currentQuestionIndex));
+        db = UserActivity.db;
+
+        // Initialize progress bar
+        progressBar = findViewById(R.id.progressBar);
     }
 
     private void showQuestion(Question question) {
@@ -67,6 +78,9 @@ public class QuestionActivity extends AppCompatActivity {
                 if (selectedOption.equals(correctAnswer)) {
                     // Handle correct answer
                     Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    score++;
+                    // Update progress bar
+                    updateProgressBar();
                 } else {
                     // Handle incorrect answer
                     Toast.makeText(this, "Incorrect. The correct answer is " + correctAnswer, Toast.LENGTH_SHORT).show();
@@ -79,6 +93,7 @@ public class QuestionActivity extends AppCompatActivity {
                 } else {
                     // Display quiz completion message or navigate to next activity
                     Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
+                    updateScoreInDatabase(score);
                 }
             });
 
@@ -87,5 +102,21 @@ public class QuestionActivity extends AppCompatActivity {
             firstOption = false;
         }
     }
+
+    private void updateProgressBar() {
+        // Update progress bar
+        int totalQuestions = questions.size();
+        int answeredQuestions = currentQuestionIndex + 1; // Index starts from 0
+        int progress = (answeredQuestions ) / totalQuestions;
+        progressBar.setProgress(progress);
+    }
+    private void updateScoreInDatabase(int score) {
+        // SQL statement to update the score for the current user
+        String updateScoreSQL = "UPDATE students SET score =" + score + " WHERE academicId = ?";
+
+        // Execute the SQL statement
+        db.execSQL(updateScoreSQL);
+    }
+
 
 }
