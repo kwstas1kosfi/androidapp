@@ -1,13 +1,14 @@
 package com.example.myhello;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.List;
 
 public class QuestionActivity extends AppCompatActivity {
@@ -15,7 +16,6 @@ public class QuestionActivity extends AppCompatActivity {
     private List<Question> questions;
     private int currentQuestionIndex = 0;
     private ProgressBar progressBar;
-    private SQLiteDatabase db;
 
     private int score = 0;
 
@@ -28,7 +28,6 @@ public class QuestionActivity extends AppCompatActivity {
         questions = XmlParserQuestion.parseQuestions(getResources(), R.xml.questions);
         // Show Questions
         showQuestion(questions.get(currentQuestionIndex));
-        db = UserActivity.db;
 
         // Initialize progress bar
         progressBar = findViewById(R.id.progressBar);
@@ -93,7 +92,6 @@ public class QuestionActivity extends AppCompatActivity {
                 } else {
                     // Display quiz completion message or navigate to next activity
                     Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
-                    updateScoreInDatabase(score);
                 }
             });
 
@@ -111,11 +109,4 @@ public class QuestionActivity extends AppCompatActivity {
         progressBar.setProgress(progress);
     }
 
-    private void updateScoreInDatabase(int score) {
-        // SQL statement to update the score for the current user
-        String updateScoreSQL = "UPDATE students SET score =" + score + " WHERE academicId = ?";
-
-        // Execute the SQL statement
-        db.execSQL(updateScoreSQL);
-    }
 }

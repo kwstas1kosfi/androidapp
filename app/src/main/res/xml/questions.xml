@@ -152,7 +152,7 @@
         <answer>ΣΩΣΤΟ</answer>
     </question>
     <question>
-        <image>paris</image>
+        <image>smyrni1</image>
         <text>Παλιά φωτογραφία της...</text>
         <options>
             <option>Θεσσαλονίκης</option>
@@ -161,7 +161,7 @@
         <answer>Σμύρνης</answer>
     </question>
     <question>
-        <image>paris</image>
+        <image>pekino</image>
         <text>Πεκίνο</text>
         <options>
             <option>ΛΑΘΟΣ</option>
@@ -170,7 +170,7 @@
         <answer>ΣΩΣΤΟ</answer>
     </question>
     <question>
-        <image>paris</image>
+        <image>amsterdam</image>
         <text>Ποια πόλη βλέπουμε;</text>
         <options>
             <option>Κοπεγχάγη</option>
@@ -179,7 +179,7 @@
         <answer>Άμστερνταμ</answer>
     </question>
     <question>
-        <image>paris</image>
+        <image>copeghagi</image>
         <text>Ποια πόλη βλέπουμε;</text>
         <options>
             <option>Κοπεγχάγη</option>
