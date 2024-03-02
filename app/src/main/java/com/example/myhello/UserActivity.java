@@ -3,6 +3,7 @@ package com.example.myhello;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +35,6 @@ public class UserActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Insert data into the table
                 insertDataIntoTable();
                 Intent intent = new Intent(UserActivity.this, QuestionActivity.class);
                 intent.putExtra("ACADEMIC_ID", academicId.getText().toString());
@@ -46,6 +46,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void insertDataIntoTable() {
+
         // Get data from EditText fields
         String academicId = String.valueOf(this.academicId.getText());
         String fullName =  String.valueOf(this.fullName.getText());
@@ -71,6 +72,12 @@ public class UserActivity extends AppCompatActivity {
             student.setFullName("");
             student.setSemester("");
         }
+        new Handler().postAtTime(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("h");
+            }
+        },3000);
     }
 
 

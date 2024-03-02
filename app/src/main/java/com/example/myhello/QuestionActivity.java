@@ -1,6 +1,9 @@
 package com.example.myhello;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -20,6 +23,8 @@ public class QuestionActivity extends AppCompatActivity {
     private Data db;
     private String academicId;
 
+    private static final long TIME_LIMIT_MILLIS = 600000; // 10 minutes
+    private CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +42,8 @@ public class QuestionActivity extends AppCompatActivity {
         if (getIntent().hasExtra("ACADEMIC_ID")) {
             academicId = getIntent().getStringExtra("ACADEMIC_ID");
         } else {
-            // Handle the case where academic ID is not passed
         }
+        startTimer();
     }
 
     private void showQuestion(Question question) {
@@ -86,23 +91,24 @@ public class QuestionActivity extends AppCompatActivity {
                     // Handle correct answer
                     Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
                     score++;
-                    // Update progress bar
-                    updateProgressBar();
                 } else {
                     // Handle incorrect answer
                     Toast.makeText(this, "Incorrect. The correct answer is " + correctAnswer, Toast.LENGTH_SHORT).show();
                 }
-
+                // Update progress bar
+                updateProgressBar();
                 // Move to the next question
-                currentQuestionIndex++;
-                if (currentQuestionIndex < questions.size()) {
-                    showQuestion(questions.get(currentQuestionIndex));
-                } else {
-                    db.updateScore(academicId, String.valueOf(score));
-                    // Display quiz completion message or navigate to next activity
-                    Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(this, academicId + score, Toast.LENGTH_SHORT).show();
-                }
+                new Handler().postDelayed(() -> {
+                    // Move to the next question
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.size()) {
+                        showQuestion(questions.get(currentQuestionIndex));
+                    } else {
+                        db.updateScore(academicId, String.valueOf(score));
+                        // Display quiz completion message or navigate to next activity
+                        Toast.makeText(QuestionActivity.this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
+                    }
+                }, 2300); // Delay in milliseconds (1000 milliseconds = 1 second)
             });
 
             // Add the option TextView to the layout
@@ -116,7 +122,44 @@ public class QuestionActivity extends AppCompatActivity {
         int totalQuestions = questions.size();
         int answeredQuestions = currentQuestionIndex + 1; // Index starts from 0
         int progress = (answeredQuestions * 100) / totalQuestions;
+        progressBar.setBackgroundColor(1);
         progressBar.setProgress(progress);
+    }
+
+    private void startTimer() {
+        countDownTimer = new CountDownTimer(TIME_LIMIT_MILLIS, 1000) {
+            @SuppressLint({"SetTextI18n", "DefaultLocale"})
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // Update the UI with the remaining time
+
+                TextView timerTextView = findViewById(R.id.timerTextView);
+                long minutes = millisUntilFinished / 60000;
+                long seconds = (millisUntilFinished % 60000) / 1000;
+                timerTextView.setText(String.format("%02d:%02d", minutes, seconds));
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onFinish() {
+                TextView timerTextView = findViewById(R.id.timerTextView);
+                // Timer finished, handle the end of the time limit
+                timerTextView.setText("Time's up!");
+                // Add logic to handle the end of the time limit, e.g., show correct answer, move to the next question, etc.
+            }
+        };
+
+        // Start the countdown timer
+        countDownTimer.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Cancel the countdown timer to avoid memory leaks
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
     }
 
 }
