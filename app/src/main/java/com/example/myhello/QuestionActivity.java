@@ -16,8 +16,10 @@ public class QuestionActivity extends AppCompatActivity {
     private List<Question> questions;
     private int currentQuestionIndex = 0;
     private ProgressBar progressBar;
-
     private int score = 0;
+    private Data db;
+    private String academicId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,12 @@ public class QuestionActivity extends AppCompatActivity {
 
         // Initialize progress bar
         progressBar = findViewById(R.id.progressBar);
+        db = new Data(this);
+        if (getIntent().hasExtra("ACADEMIC_ID")) {
+            academicId = getIntent().getStringExtra("ACADEMIC_ID");
+        } else {
+            // Handle the case where academic ID is not passed
+        }
     }
 
     private void showQuestion(Question question) {
@@ -90,8 +98,10 @@ public class QuestionActivity extends AppCompatActivity {
                 if (currentQuestionIndex < questions.size()) {
                     showQuestion(questions.get(currentQuestionIndex));
                 } else {
+                    db.updateScore(academicId, String.valueOf(score));
                     // Display quiz completion message or navigate to next activity
                     Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, academicId + score, Toast.LENGTH_SHORT).show();
                 }
             });
 

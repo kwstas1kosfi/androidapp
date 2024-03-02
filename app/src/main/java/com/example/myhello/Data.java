@@ -25,6 +25,7 @@ public class Data extends SQLiteOpenHelper {
     public Data(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_STUDENTS);
@@ -45,5 +46,18 @@ public class Data extends SQLiteOpenHelper {
         db.insert(TABLE_STUDENTS, null, values);
         db.close();
         return 0;
+    }
+
+    public void updateScore(String academicId, String newScore) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COL_SCORE, newScore);
+
+        // Update the score for the given academic ID
+        db.update(TABLE_STUDENTS, values, COL_ACADEMIC_ID + " = ?",
+                new String[]{String.valueOf(academicId)});
+
+        db.close();
     }
 }

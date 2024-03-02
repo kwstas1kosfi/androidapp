@@ -34,21 +34,12 @@
         android:inputType="text"
         android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/full_name"
-        android:layout_marginTop="16dp"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:autofillHints="" />
 
     <EditText
         android:id="@+id/semester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:layout_below="@id/full_name"
         android:layout_marginTop="16dp"
         android:hint="@string/semester"
         android:inputType="number"

@@ -36,8 +36,11 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Insert data into the table
                 insertDataIntoTable();
+                Intent intent = new Intent(UserActivity.this, QuestionActivity.class);
+                intent.putExtra("ACADEMIC_ID", academicId.getText().toString());
                 // Proceed to the next activity
-                startActivity(new Intent(UserActivity.this, QuestionActivity.class));
+//                startActivity(new Intent(UserActivity.this, QuestionActivity.class));
+                startActivity(intent);
             }
         });
     }
@@ -55,8 +58,6 @@ public class UserActivity extends AppCompatActivity {
         }
 
         Student student = new Student(academicId, fullName, semester, score);
-
-
 
         long result = db.insertStudent(student);
 
