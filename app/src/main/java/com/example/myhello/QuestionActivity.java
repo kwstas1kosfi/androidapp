@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Collections;
 import java.util.List;
 
 public class QuestionActivity extends AppCompatActivity {
@@ -68,6 +69,8 @@ public class QuestionActivity extends AppCompatActivity {
 
         // Clear the options layout before adding new options
         optionsLayout.removeAllViews();
+        // Shuffle the options to display them randomly
+        Collections.shuffle(questions);
 
         for (int i = 0; i < options.size(); i++) {
             // Create a new TextView for each option
@@ -115,6 +118,7 @@ public class QuestionActivity extends AppCompatActivity {
             optionsLayout.addView(optionTextView);
             firstOption = false;
         }
+
     }
 
     private void updateProgressBar() {

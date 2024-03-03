@@ -3,7 +3,6 @@ package com.example.myhello;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,17 +34,21 @@ public class UserActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertDataIntoTable();
-                Intent intent = new Intent(UserActivity.this, QuestionActivity.class);
-                intent.putExtra("ACADEMIC_ID", academicId.getText().toString());
-                // Proceed to the next activity
+                if (insertDataIntoTable() == 1){
+                    buttonLogin.setEnabled(false);
+                    buttonLogin.setEnabled(true);
+                }else {
+                    Intent intent = new Intent(UserActivity.this, QuestionActivity.class);
+                    intent.putExtra("ACADEMIC_ID", academicId.getText().toString());
+                    // Proceed to the next activity
 //                startActivity(new Intent(UserActivity.this, QuestionActivity.class));
-                startActivity(intent);
+                    startActivity(intent);
+                }
             }
         });
     }
 
-    private void insertDataIntoTable() {
+    private int insertDataIntoTable() {
 
         // Get data from EditText fields
         String academicId = String.valueOf(this.academicId.getText());
@@ -55,29 +58,25 @@ public class UserActivity extends AppCompatActivity {
 
         if (academicId.isEmpty() || fullName.isEmpty() || semester.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        Student student = new Student(academicId, fullName, semester, score);
-
-        long result = db.insertStudent(student);
-
-        // Check if the insertion was successful
-        if (result == -1) {
-            Toast.makeText(this, "Failed to insert data", Toast.LENGTH_SHORT).show();
+            return 1;
         } else {
-            Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show();
-            // Clear EditText fields after successful insertion
-            student.setAcademicId("");
-            student.setFullName("");
-            student.setSemester("");
-        }
-        new Handler().postAtTime(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("h");
+
+            Student student = new Student(academicId, fullName, semester, score);
+
+            long result = db.insertStudent(student);
+
+            // Check if the insertion was successful
+            if (result == -1) {
+                Toast.makeText(this, "Failed to insert data", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show();
+                // Clear EditText fields after successful insertion
+                student.setAcademicId("");
+                student.setFullName("");
+                student.setSemester("");
             }
-        },3000);
+            return 0;
+        }
     }
 
 

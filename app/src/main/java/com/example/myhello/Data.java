@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Data extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "quiz_database";
@@ -15,12 +18,15 @@ public class Data extends SQLiteOpenHelper {
     private static final String COL_FULL_NAME = "fullName";
     private static final String COL_SEMESTER = "semester";
     private static final String COL_SCORE = "score";
-
+    private static final String COL_DATE = "date";
+    Date currentTime = Calendar.getInstance().getTime();
     private static final String CREATE_TABLE_STUDENTS = "CREATE TABLE IF NOT EXISTS  " + TABLE_STUDENTS + " (" +
             COL_ACADEMIC_ID + " INTEGER PRIMARY KEY," +
             COL_FULL_NAME + " TEXT," +
             COL_SEMESTER + " INTEGER," +
-            COL_SCORE + " INTEGER)";
+            COL_SCORE + " INTEGER," +
+            COL_DATE + " DATE)";
+
 
     public Data(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -43,6 +49,7 @@ public class Data extends SQLiteOpenHelper {
         values.put(COL_FULL_NAME, student.getFullName());
         values.put(COL_SEMESTER, student.getSemester());
         values.put(COL_SCORE, student.getScore());
+        values.put(COL_DATE, String.valueOf(currentTime));
         db.insert(TABLE_STUDENTS, null, values);
         db.close();
         return 0;
